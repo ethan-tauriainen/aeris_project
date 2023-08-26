@@ -19,8 +19,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/hello")
-    def hello():
-        return "Hello, World!"
+    from . import controller
+    app.register_blueprint(controller.bp)
 
     return app
