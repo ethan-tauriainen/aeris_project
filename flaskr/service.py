@@ -1,12 +1,12 @@
 from pathlib import Path
 import pandas
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as pyplot
-from matplotlib.colors import ListedColormap
 
 CONCENTRATION_STR = "concentration"
 PATH = Path("./flaskr/data")
 CSV = PATH / "concentration.timeseries.csv"
+IMG_PATH = Path("./flaskr")
+IMG = IMG_PATH / "data.png"
 POINTS = pandas.read_csv(CSV.as_posix())
 
 
@@ -23,12 +23,7 @@ def calculate_std_deviation():
 
 
 def generate_png():
-    """Use matplotlib to generate .png image of data
-
-    Referenced matplotlib documentation:
-    https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_with_legend.html#sphx-glr-gallery-lines-bars-and-markers-scatter-with-legend-py
-    """
-
+    
     x = POINTS["x"].values
     y = POINTS["y"].values
     concentration = POINTS[CONCENTRATION_STR].values
@@ -42,7 +37,8 @@ def generate_png():
     )
 
     ax.add_artist(legend)
+    ax.set_title("Aeris LLC Project Data Visualization")
 
     scatter.legend_elements(prop="sizes", alpha=0.6)
 
-    pyplot.show()
+    pyplot.savefig(IMG, format="png")

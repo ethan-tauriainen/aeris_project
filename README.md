@@ -7,6 +7,11 @@ Find the resulting `.whl` file here: `dist/flaskr-1.0.0-py2.py3-none-any.whl`
 $ pip -m build --wheel
 ```
 
+Install the application:
+```
+$ pip install flaskr-1.0.0-py2.py3-none-any.whl
+```
+
 ## Docker Commands
 ```
 $ docker image build -t aeris_project .

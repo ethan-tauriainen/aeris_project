@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask
+from flask import Blueprint, Flask, send_file
 from . import service
 
 bp = Blueprint("controller", __name__, url_prefix="/data")
@@ -29,4 +29,4 @@ def get_std_deviation():
 @bp.route("/get-image", methods=["GET"])
 def get_image():
     service.generate_png()
-    return {"image": "image.png"}
+    return send_file("data.png", mimetype="image/jpg")
