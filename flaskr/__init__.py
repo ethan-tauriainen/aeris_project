@@ -19,7 +19,13 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    # default endpoint
+    @app.route("/")
+    def default():
+        return "Aeris LLC Project"
+
     from . import controller
+
     app.register_blueprint(controller.bp)
 
     return app
