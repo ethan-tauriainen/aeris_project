@@ -18,6 +18,11 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+    
+    # default endpoint
+    @app.route("/")
+    def default():
+        return "Aeris LLC Project"
 
     from . import controller
 
