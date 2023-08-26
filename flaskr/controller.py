@@ -1,27 +1,23 @@
-import functools
+from flask import Blueprint
 
-from flask import (
-    Blueprint
-)
-
-bp = Blueprint('controller', __name__, url_prefix='/data')
+bp = Blueprint("controller", __name__, url_prefix="/data")
 
 
-@bp.route('/get-sum', methods=['GET'])
+@bp.route("/get-sum", methods=["GET"])
 def get_sum():
-    return {'sum': 'sum'}
+    return {"sum": "sum"}
 
 
-@bp.route('/get-mean', methods=['GET'])
+@bp.route("/get-mean", methods=["GET"])
 def get_mean():
-    return {'mean': 'mean'}
+    return {"mean": "mean"}
 
 
-@bp.route('/get-std-deviation', methods=['GET'])
+@bp.route("/get-std-deviation", methods=["GET"])
 def get_std_deviation():
-    return {'std-deviation': 'std-deviation'}
+    return {"std-deviation": "std-deviation"}
 
 
-@bp.route('/get-image', methods=['GET'])
+@bp.route("/get-image", methods=["GET"])
 def get_image():
-    return {'image': 'image.png'}
+    return {"image": "image.png"}

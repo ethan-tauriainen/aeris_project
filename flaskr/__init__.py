@@ -20,6 +20,7 @@ def create_app(test_config=None):
         pass
 
     from . import controller
+
     app.register_blueprint(controller.bp)
 
     return app
