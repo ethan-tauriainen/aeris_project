@@ -12,6 +12,8 @@ This application sets up four endpoints via Flask:
 
 The endpoints may be accessed via `curl` or some other method by which API endpoints may be tested (such as `Postman`). It should be noted that this document contains instructions for manually testing the above endpoints via `curl` alone.
 
+The application will read data from a `.csv` file, process this data and return a different result depending upon which of the above endpoints is accessed by the client.
+
 ## Pre-requisites
 Users must have Docker installed. If one needs assistance in this area please follow the official instructions, which can be found here: https://docs.docker.com/engine/install/
 
