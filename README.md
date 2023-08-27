@@ -4,7 +4,7 @@ Denver, CO<br>
 734-751-4749
 
 ## Overview
-This application sets up for endpoints via Flask:
+This application sets up four endpoints via Flask:
 - `/data/get-sum`
 - `/data/get-mean`
 - `/data/get-std-deviation`
