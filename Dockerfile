@@ -1,12 +1,18 @@
-FROM python:3.10-alpine
+FROM python:3.10.13-bookworm
 
 COPY . /aeris_project/
 
 WORKDIR /aeris_project/
 
-COPY ./dist/flaskr-1.0.0-py2.py3-none-any.whl /aeris_project/flaskr-1.0.0-py2.py3-none-any.whl
+RUN pip install --upgrade pip
+
+ADD requirements.txt .
+
+ADD ./dist/flaskr-1.0.0-py2.py3-none-any.whl .
 
 RUN pip install flaskr-1.0.0-py2.py3-none-any.whl
+
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
