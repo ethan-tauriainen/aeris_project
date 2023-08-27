@@ -23,7 +23,6 @@ def calculate_std_deviation():
 
 
 def generate_png():
-    
     x = POINTS["x"].values
     y = POINTS["y"].values
     concentration = POINTS[CONCENTRATION_STR].values
@@ -42,5 +41,3 @@ def generate_png():
     scatter.legend_elements(prop="sizes", alpha=0.6)
 
     pyplot.savefig(IMG, format="png")
-
-    # TODO: Calculate MD5 Sum of the resulting .png
