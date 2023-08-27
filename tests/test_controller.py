@@ -21,9 +21,9 @@ def test_std_deviation(client):
 
 
 def test_img(client):
-    if (os.path.exists(IMG)):
+    if os.path.exists(IMG):
         os.remove(IMG)
-    
+
     assert not os.path.exists(IMG)
     response = client.get("/data/get-image")
     assert os.path.exists(IMG)

@@ -1,5 +1,10 @@
-from flask import Blueprint, Flask, send_file
+from flask import Blueprint, Flask, send_file, abort, jsonify, Response
 from flaskr import service
+from pathlib import Path
+import os
+
+IMG_PATH = Path("./flaskr")
+IMG = IMG_PATH / "data.png"
 
 bp = Blueprint("controller", __name__, url_prefix="/data")
 app = Flask(__name__)
@@ -29,4 +34,9 @@ def get_std_deviation():
 @bp.route("/get-image", methods=["GET"])
 def get_image():
     service.generate_png()
-    return send_file("data.png", mimetype="image/png")
+    if os.path.exists(IMG):
+        app.logger.debug(f"File: {IMG} created, sending to client")
+        return send_file("data.png", mimetype="image/png")
+    else:
+        app.logger.error(f"Error creating file: {IMG}")
+        abort(404, description="Image resource not located")
