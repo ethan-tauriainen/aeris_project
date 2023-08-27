@@ -42,3 +42,5 @@ def generate_png():
     scatter.legend_elements(prop="sizes", alpha=0.6)
 
     pyplot.savefig(IMG, format="png")
+
+    # TODO: Calculate MD5 Sum of the resulting .png
