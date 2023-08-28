@@ -20,14 +20,22 @@ Users must have Docker installed. If one needs assistance in this area please fo
 If a user would like to run this application locally without the use of a Docker container, this is possible; however, it is advised to create a `venv` within which to build, install, and run the application. If help is desired in this area, please refer to the following documentation: https://docs.python.org/3/library/venv.html
 
 ## Build and Install
-Find the resulting `.whl` file here: `dist/flaskr-1.0.0-py2.py3-none-any.whl`
+Install the build command:
+```
+$ pip install build
+```
+Find the resulting `.whl` file here: `dist/flaskr-1.0.0-py2.py3-none-any.whl` after running the following command:
 ```
 $ python -m build --wheel
 ```
 
 Install the application:
 ```
-$ pip install flaskr-1.0.0-py2.py3-none-any.whl
+$ pip install ./dist/flaskr-1.0.0-py2.py3-none-any.whl
+```
+Install the total requirements:
+```
+$ pip install -r requirements.txt
 ```
 
 The previous command will install all necessary dependencies. To run the app locally execute the following:
@@ -36,6 +44,12 @@ $ flask --app flaskr run --debug
 ```
 
 ## Docker Commands
+#### Note: the aforementioned `flaskr-1.0.0-py2.py3-none-any.whl` file MUST be generated. The Dockerfile script relies on this file being present. Remember to execute the following commands prior to running the docker-specific commands below:
+```
+$ pip install build
+$ python -m build --wheel
+```
+
 If you would like to run this application within a Docker container, execute the following commands from within the root of the project:
 ```
 $ docker image build -t aeris_project .
